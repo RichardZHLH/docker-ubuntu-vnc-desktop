@@ -17,7 +17,7 @@ if [ -n "$OPENBOX_ARGS" ]; then
 fi
 
 if [ -n "$RESOLUTION" ]; then
-    sed -i "s/1024x768/$RESOLUTION/" /usr/local/bin/xvfb.sh
+    sed -i "s/2560x1340/$RESOLUTION/" /usr/local/bin/xvfb.sh
 fi
 
 USER=${USER:-root}
@@ -71,4 +71,4 @@ fi
 PASSWORD=
 HTTP_PASSWORD=
 
-exec /bin/tini -- supervisord -n -c /etc/supervisor/supervisord.conf
+exec supervisord -n -c /etc/supervisor/supervisord.conf
