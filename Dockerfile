@@ -31,5 +31,6 @@ RUN apt update \
     && apt autoremove -y \
     && rm -rf /var/lib/apt/lists/*
  
-COPY rootfs /
+COPY startup.sh /
+COPY supervisord.conf /
 CMD ["/startup.sh"]
