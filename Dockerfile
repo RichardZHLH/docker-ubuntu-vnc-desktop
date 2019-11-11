@@ -26,7 +26,7 @@ RUN apt update \
     && apt autoremove -y \
     && rm -rf /var/lib/apt/lists/*
 RUN apt update \
-    && apt install -y vim-gtk openssh-server git  \
+    && apt install -y vim-gtk openssh-server git xfonts-scalable  \
     && apt autoclean -y \
     && apt autoremove -y \
     && rm -rf /var/lib/apt/lists/*
