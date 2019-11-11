@@ -30,6 +30,12 @@ RUN apt update \
     && apt autoclean -y \
     && apt autoremove -y \
     && rm -rf /var/lib/apt/lists/*
+
+RUN cd /tmp \
+	&& wget https://nodejs.org/dist/v12.13.0/node-v12.13.0-linux-x64.tar.xz \
+	&& xz -d node-v12.13.0-linux-x64.tar.xz \
+	&& tar xf node-v12.13.0-linux-x64.tar \
+	&& mv node-v12.13.0-linux-x64 /usr/local/node
  
 COPY startup.sh /
 COPY supervisord.conf /
