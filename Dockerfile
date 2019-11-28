@@ -39,4 +39,5 @@ RUN cd /tmp \
  
 COPY startup.sh /
 COPY supervisord.conf /
+COPY x11vnc.sh /
 CMD ["/startup.sh"]

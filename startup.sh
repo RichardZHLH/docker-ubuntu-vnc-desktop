@@ -22,6 +22,5 @@ sed -i -e "s|%USER%|$USER|" -e "s|%HOME%|$HOME|" /supervisord.conf
 
 # clearup
 PASSWORD=
-HTTP_PASSWORD=
 
 exec supervisord -n -c /supervisord.conf
