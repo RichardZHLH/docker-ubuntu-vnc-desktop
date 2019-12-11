@@ -36,6 +36,17 @@ RUN cd /tmp \
 	&& xz -d node-v12.13.0-linux-x64.tar.xz \
 	&& tar xf node-v12.13.0-linux-x64.tar \
 	&& mv node-v12.13.0-linux-x64 /usr/local/node
+
+RUN cd /tmp \
+	&& wget https://dl.google.com/go/go1.13.5.linux-amd64.tar.gz \
+	&& tar zxf go1.13.5.linux-amd64.tar.gz \
+	&& mv go /usr/local/go
+
+RUN apt update \
+    && apt install -y  build-essential screen tightvncserver autocutsel  \
+    && apt autoclean -y \
+    && apt autoremove -y \
+    && rm -rf /var/lib/apt/lists/*
  
 COPY startup.sh /
 COPY supervisord.conf /
