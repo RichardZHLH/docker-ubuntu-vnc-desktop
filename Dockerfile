@@ -48,6 +48,12 @@ RUN apt update \
     && apt autoremove -y \
     && rm -rf /var/lib/apt/lists/*
  
+RUN apt update \
+    && apt install -y  wine64  \
+    && apt autoclean -y \
+    && apt autoremove -y \
+    && rm -rf /var/lib/apt/lists/*
+ 
 COPY startup.sh /
 COPY supervisord.conf /
 COPY x11vnc.sh /
