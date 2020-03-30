@@ -43,10 +43,12 @@ RUN cd /tmp \
 	&& mv go /usr/local/go
 
 RUN apt update \
-    && apt install -y  build-essential screen tightvncserver autocutsel  \
+    && apt install -y  build-essential screen tightvncserver autocutsel language-pack-en  \
     && apt autoclean -y \
     && apt autoremove -y \
     && rm -rf /var/lib/apt/lists/*
+
+RUN sed -i 'X11UseLocalhost/a\X11UseLocalhost no' /etc/ssh/sshd_config
  
 RUN apt update \
     && apt install -y  wine64  \
