@@ -23,5 +23,6 @@ sed -i -e "s|%USER%|$USER|" -e "s|%HOME%|$HOME|" /supervisord.conf
 # clearup
 PASSWORD=
 mkdir -p /run/sshd  # for sshd
+rm -rf  /tmp/.X*-lock /tmp/.X11-unix/X*
 sudo sed -i 's/BIG-REQUESTS/_IG-REQUESTS/' /usr/lib/x86_64-linux-gnu/libxcb.so.1 # for vscode
 exec supervisord -n -c /supervisord.conf

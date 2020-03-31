@@ -14,7 +14,7 @@ RUN apt update \
         supervisor sudo net-tools zenity xz-utils \
         dbus-x11 x11-utils
 
-RUN  apt install -y gnome 
+RUN  apt install -y mate
 RUN  apt install -y build-essential
     
 RUN apt install -y  --allow-unauthenticated \
@@ -36,7 +36,7 @@ RUN cd /tmp \
 
 RUN apt install -y  screen tightvncserver autocutsel language-pack-en
 
-RUN sed -i 'X11UseLocalhost/a\X11UseLocalhost no' /etc/ssh/sshd_config
+# RUN sed -i 'X11UseLocalhost/a\X11UseLocalhost no' /etc/ssh/sshd_config
  
  
 COPY startup.sh /
