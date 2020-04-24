@@ -8,20 +8,15 @@ RUN sed -i 's#http://archive.ubuntu.com/ubuntu/#mirror://mirrors.ubuntu.com/mirr
 
 # built-in packages
 ENV DEBIAN_FRONTEND noninteractive
-RUN apt update \
-    && apt install -y  software-properties-common curl apache2-utils \
-    && apt install -y  --allow-unauthenticated \
-        supervisor sudo net-tools zenity xz-utils \
-        dbus-x11 x11-utils
+RUN apt update 
 
-RUN  apt install -y mate
 RUN  apt install -y build-essential
+RUN  apt install -y curl supervisor sudo net-tools xz-utils
     
-RUN apt install -y  --allow-unauthenticated \
-	xvfb x11vnc \
-        gtk2-engines-murrine gnome-themes-standard gtk2-engines-pixbuf gtk2-engines-murrine arc-theme
-
 RUN apt install -y vim-gtk openssh-server git xfonts-scalable  
+
+RUN apt install -y  screen tightvncserver autocutsel
+RUN  apt install -y mate
 
 RUN cd /tmp \
 	&& wget https://nodejs.org/dist/v12.13.0/node-v12.13.0-linux-x64.tar.xz \
@@ -34,10 +29,7 @@ RUN cd /tmp \
 	&& tar zxf go1.13.5.linux-amd64.tar.gz \
 	&& mv go /usr/local/go
 
-RUN apt install -y  screen tightvncserver autocutsel language-pack-en
 
-# RUN sed -i 'X11UseLocalhost/a\X11UseLocalhost no' /etc/ssh/sshd_config
- 
  
 COPY startup.sh /
 COPY supervisord.conf /
