@@ -32,6 +32,7 @@ RUN cd /tmp \
 	&& tar zxf go1.13.5.linux-amd64.tar.gz \
 	&& mv go /usr/local/go
 
+RUN apt install -y mate-terminal
  
 COPY startup.sh /
 COPY supervisord.conf /
